@@ -1,0 +1,41 @@
+<nb-card>
+  <nb-card-body>
+  <div *ngIf="showSuccess">
+  <nb-alert status="success">
+      ¡Escritura exitosa!
+    </nb-alert>
+  </div>
+  <div *ngIf="showFail">
+   <nb-alert status="danger">
+      ¡Escritura fallida!
+    </nb-alert>
+  </div>
+   <div *ngIf="show">
+     <button class="btn_options" (click)="updateProduct(product)" nbButton>Actualizar</button>
+    </div>
+    <div *ngIf="!show">
+     <button class="btn_options" (click)="saveProduct(product)" nbButton>Agregar</button>
+    </div>
+    <br>
+    <input placeholder="Handle" type="text" nbInput [(ngModel)]="product.handle"><br>
+    <input placeholder="Titulo" type="text" nbInput [(ngModel)]="product.title"><br>
+    <input placeholder="SKU" type="number" nbInput [(ngModel)]="product.sku"><br>
+    <input placeholder="Precio" type="number" nbInput [(ngModel)]="product.price"><br>
+    <input placeholder="Peso (gramos)" type="number" nbInput [(ngModel)]="product.grams"><br>
+    <input placeholder="Stock" type="number" nbInput [(ngModel)]="product.stock"><br>
+    <input placeholder="Precio comparativo" type="number" nbInput [(ngModel)]="product.comparePrice"><br>
+    <input placeholder="Código de barra" type="number" nbInput [(ngModel)]="product.barcode"><br>
+    <nb-accordion>
+        <nb-accordion-item>
+            <nb-accordion-item-header>
+                Descripcion del producto
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+                <p>En la descripcion puedes copiar y pegar html o texto plano</p>
+                <textarea nbInput fullWidth type="text" nbInput [(ngModel)]="product.description">
+                </textarea>
+            </nb-accordion-item-body>
+        </nb-accordion-item>
+     </nb-accordion>
+  </nb-card-body>
+</nb-card>
