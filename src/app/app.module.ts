@@ -51,10 +51,18 @@ import { AuthGuard } from './services/auth.guard.service';
           login: {
             endpoint: '/api/auth/login',
             method: 'post',
+            redirect: {
+              success: 'api/pages/products',
+              failure: null, // stay on the same page
+            },
           },
           register: {
-            endpoint: '/api/users/new',
+            endpoint: '/api/auth/register',
             method: 'post',
+            redirect: {
+              success: 'api/auth/login',
+              failure: null, // stay on the same page
+            },
           },
           token: {
             key: 'token',
